@@ -1,17 +1,23 @@
 "use client";
 import { useEffect, useRef } from "react";
-import {FaArrowUp} from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa";
 
 const ScrollTop = () => {
   const arrow = useRef();
 
   useEffect(() => {
-    window.onscroll = () => {
-      if (window.pageYOffset >= 200) {
+    const handleScroll = () => {
+      if (arrow.current && window.pageYOffset >= 200) {
         arrow.current.classList.add("right-8");
-      } else {
+      } else if (arrow.current) {
         arrow.current.classList.remove("right-8");
       }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -31,7 +37,6 @@ const ScrollTop = () => {
         ref={arrow}
       >
         <FaArrowUp scale={50} />
-       
       </button>
     </div>
   );
