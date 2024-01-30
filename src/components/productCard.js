@@ -33,7 +33,6 @@ const ProductCard = () => {
                 animate={{x: 0}}
                 transition={{
                   duration: "2",
-                  delay: "1"
                 }}
               className="text-gray-600 mb-4">
     Our premium table water is sourced from the purest natural springs, ensuring a crisp and refreshing taste with every sip. Purified through state-of-the-art filtration processes, our water meets the highest quality standards. Packed in eco-friendly bottles, our table water is not just a thirst-quencher; it's a commitment to health, sustainability, and uncompromised purity.
