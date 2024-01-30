@@ -29,7 +29,12 @@ const ProductCard = () => {
               </div>
               <h3 className="text-xl font-semibold mb-4">Sky Water</h3>
               <motion.p
-               
+                initial={{x: -1000}}
+                animate={{x: 0}}
+                transition={{
+                  duration: "2",
+                  delay: "1"
+                }}
               className="text-gray-600 mb-4">
     Our premium table water is sourced from the purest natural springs, ensuring a crisp and refreshing taste with every sip. Purified through state-of-the-art filtration processes, our water meets the highest quality standards. Packed in eco-friendly bottles, our table water is not just a thirst-quencher; it's a commitment to health, sustainability, and uncompromised purity.
 
@@ -53,9 +58,15 @@ const ProductCard = () => {
                 ></div>
               </div>
               <h3 className="text-xl font-semibold mb-4">Sky Bread</h3>
-              <p className="text-gray-600 mb-4">
+              <motion.p
+               initial={{x: -1000}}
+               animate={{x: 0}}
+               transition={{
+                 duration: "2",
+               }}
+              className="text-gray-600 mb-4">
               Immerse your senses in the aroma and taste of our freshly baked bread. Crafted with care and using only the finest ingredients, our bread is a testament to quality and flavor. From classic white and whole grain options to artisanal varieties, each loaf is baked to perfection, delivering a delightful crunch on the outside and a soft, fluffy texture on the inside. Experience the essence of tradition and innovation with every bite.
-              </p>
+              </motion.p>
             </div>
           </div>
 
