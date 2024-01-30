@@ -72,7 +72,7 @@ function AdainNavBar() {
                   
                  
                   <li className={`text-adainblack hover:text-adainwhite pr-6 ${activeNavItem === 'experiences' ? 'active' : ''}`}>
-                    <Link to="/navlinks/experiences" onClick={() => handleClick('experiences')}>
+                    <Link to="/job" onClick={() => handleClick('experiences')}>
                     Job
                     </Link>
                   </li>
