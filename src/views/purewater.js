@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import AdainNavBar from '../components/navbar';
 import Footer from '../components/footer';
+import {motion} from 'framer-motion'
 
 const CardFlip = () => {
   const [activeCard, setActiveCard] = useState(false);
@@ -15,7 +16,7 @@ const CardFlip = () => {
       title: "The King's Man",
       rating: '9.0 Rating',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis itaque assumenda saepe animi maxime libero non quasi, odit natus veritatis enim culpa nam inventore doloribus quidem temporibus amet velit accusamus.',
+        'In a world where quality matters, we stand out as a beacon of purity. Our table water undergoes a meticulous purification process that guarantees the removal of impurities, leaving only crisp, refreshing goodness in every drop. We are proud to be the guardians of your hydration, ensuring that what you drink is not just water, but a symbol of purity and well-being.',
       frontImage: './assets/img1.JPG',
       backImage: '/assets/img2.JPG',
     },
@@ -64,14 +65,19 @@ const CardFlip = () => {
                onMouseEnter={handleFlip}
                onMouseLeave={handleFlip}
               className="front">
-                <div className="w-[300px]  h-[220px] bg-transparent cursor-pointer group perspective">
+                <div className="w-[300px]  h-[320px] bg-transparent cursor-pointer group perspective">
                   <div className="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000">
                     <div className="absolute backface-hidden w-full h-full">
                       <img  src={card.frontImage} alt="front" className="w-full h-full" />
                     </div>
                     <div className="absolute my-rotate-y-180 backface-hidden w-full h-full bg-gray-100 overflow-hidden">
                       <div className="mt-10 text-center flex flex-col items-center justify-center h-full text-adainwhite px-2 pb-4 md:pb-24">
-                        <p className=''>{card.description}</p>
+                      <motion.p
+                initial={{x: -1000}}
+                animate={{x: 0}}
+                transition={{
+                  duration: "2",
+                }}>{card.description}</motion.p>
                       </div>
                     </div>
                   </div>
