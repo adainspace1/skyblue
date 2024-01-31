@@ -83,7 +83,7 @@ function AdainNavBar() {
 
     {isDropdownOpen && (
       <div className="font-bold absolute py-8 my-4 text-sm  text-adainblack hover:text-adainwhite">
-        <Link href="" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack ">
+        <Link to="/purewater" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack ">
          SkyWater
         </Link>
         <Link href="" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack">
