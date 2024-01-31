@@ -57,16 +57,17 @@ const CardFlip = () => {
           {cardsData.map((card, index) => (
             <div
               key={index}
-              onMouseEnter={handleFlip}
-              onMouseLeave={handleFlip}
               className={`relative card ${activeCard ? 'cardFlip' : ''}`}
             >
               {/* front */}
-              <div className="front">
+              <div
+               onMouseEnter={handleFlip}
+               onMouseLeave={handleFlip}
+              className="front">
                 <div className="w-[300px]  h-[220px] bg-transparent cursor-pointer group perspective">
                   <div className="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000">
                     <div className="absolute backface-hidden w-full h-full">
-                      <img src={card.frontImage} alt="front" className="w-full h-full" />
+                      <img  src={card.frontImage} alt="front" className="w-full h-full" />
                     </div>
                     <div className="absolute my-rotate-y-180 backface-hidden w-full h-full bg-gray-100 overflow-hidden">
                       <div className="mt-10 text-center flex flex-col items-center justify-center h-full text-adainwhite px-2 pb-4 md:pb-24">
