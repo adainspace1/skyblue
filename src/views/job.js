@@ -15,6 +15,30 @@ const Job = ()=>{
     const toggleFormVisibility = ()=>{
         setShowForm(!showForm)
       }
+      const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        phone: '',
+        position: '',
+        resume: null,
+        coverLetter: '',
+      });
+    
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+      };
+    
+      const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setFormData({ ...formData, resume: file });
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        // Add your logic to handle the form submission, like sending data to a server
+        console.log('Form data submitted:', formData);
+      };
 
     return(
         <div>
@@ -43,25 +67,109 @@ const Job = ()=>{
             {showForm  && (<div></div>) ? (
             
             <div className="bg-adainyellow w-96">
-                <form action="#" className="space-y-8 m-5 p-4">
-          <div>
-              <label for="text" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">FullName</label>
-              <input type="text" id="fullname" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="john doe" required/>
-          </div>
-          <div>
-              <label for="subject" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-              <input type="text" id="subject" className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required/>
-          </div>
-          <div className="sm:col-span-2">
-              <label for="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-              <textarea id="message" rows="6" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
-          </div>
+                <form className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md">
+      <h2 className="text-2xl font-semibold mb-4">Job Application Form</h2>
 
-          <div className="flex justify-center items-center">
-          <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-adainwhite rounded-lg bg-adainyellow sm:w-fit hover:bg-adainblack focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+      <div className="mb-4">
+        <label htmlFor="fullName" className="block text-sm font-medium text-gray-600">
+          Full Name
+        </label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          value={formData.fullName}
+          onChange={handleChange}
+          className="mt-1 p-2 w-full border rounded-md"
+          required
+        />
+      </div>
 
-          </div>
-      </form>
+      <div className="mb-4">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="mt-1 p-2 w-full border rounded-md"
+          required
+        />
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="phone" className="block text-sm font-medium text-gray-600">
+          Phone
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          className="mt-1 p-2 w-full border rounded-md"
+          required
+        />
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="position" className="block text-sm font-medium text-gray-600">
+          Position
+        </label>
+        <input
+          type="text"
+          id="position"
+          name="position"
+          value={formData.position}
+          onChange={handleChange}
+          className="mt-1 p-2 w-full border rounded-md"
+          required
+        />
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="resume" className="block text-sm font-medium text-gray-600">
+          Resume (PDF only)
+        </label>
+        <input
+          type="file"
+          id="resume"
+          name="resume"
+          onChange={handleFileChange}
+          className="mt-1 p-2 w-full border rounded-md"
+          accept=".pdf"
+          required
+        />
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="coverLetter" className="block text-sm font-medium text-gray-600">
+          Cover Letter
+        </label>
+        <textarea
+          id="coverLetter"
+          name="coverLetter"
+          value={formData.coverLetter}
+          onChange={handleChange}
+          rows="4"
+          className="mt-1 p-2 w-full border rounded-md"
+          required
+        ></textarea>
+      </div>
+
+      <div className="flex items-center justify-end">
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className="bg-adainblack text-adainwhite p-2 rounded-md hover:bg-adainyellow"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
 
             </div>) : ""}
 

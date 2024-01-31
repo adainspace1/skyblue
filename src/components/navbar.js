@@ -11,7 +11,9 @@ function AdainNavBar() {
 
  {/* I made a function here to toggle the dropdown button whenever 
  the user want to change the state of the dropdown to true from false... */}
-
+ const toggleDropdown = () => {
+  setIsDropdownOpen(!isDropdownOpen);
+};
 
 
   
@@ -69,6 +71,30 @@ function AdainNavBar() {
       {`Home`}
     </Link>
   </li>
+
+  <li className="relative text-adainblack hover:text-adainwhite">
+    <button onClick={toggleDropdown} className="nav-link flex items-center">
+      Products & Services
+      <FaCaretDown className="ml-1" />
+    </button>
+
+   {/* I made a conditional rendering of dropdown of the items inside the 
+   Products and services here, such that that users can switch to true or false ... */}
+
+    {isDropdownOpen && (
+      <div className="font-bold absolute py-8 my-4 text-sm  text-adainblack hover:text-adainwhite">
+        <Link href="" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack ">
+         SkyWater
+        </Link>
+        <Link href="" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack">
+          SkyPrinting
+        </Link>    
+        <Link href="" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack">
+        SkyBread
+        </Link>
+        </div>
+          )}
+         </li>
                   
                  
                   <li className={`text-adainblack hover:text-adainwhite pr-6 ${activeNavItem === 'experiences' ? 'active' : ''}`}>
