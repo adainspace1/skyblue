@@ -1,16 +1,15 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
 const ScrollTop = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const arrow = useRef();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (arrow.current && window.pageYOffset >= 200) {
-        arrow.current.classList.add("right-8");
-      } else if (arrow.current) {
-        arrow.current.classList.remove("right-8");
+      if (arrow.current) {
+        setIsVisible(window.pageYOffset >= 200);
       }
     };
 
@@ -32,7 +31,9 @@ const ScrollTop = () => {
     <div className="overflow-hidden">
       <button
         aria-label="arrow"
-        className={`fixed bottom-4 -right-full transition-all duration-500 shadow-2xl shadow-black text-gray-500 bg-adainyellow hover:bg-[#ececec] p-2 rounded`}
+        className={`fixed bottom-4 transition-all duration-500 transform ${
+          isVisible ? "left-8" : "-left-full"
+        } shadow-2xl shadow-black text-gray-500 bg-adainyellow hover:bg-[#ececec] p-2 rounded`}
         onClick={scrollToTop}
         ref={arrow}
       >
