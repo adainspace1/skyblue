@@ -86,12 +86,10 @@ function AdainNavBar() {
         <Link to="/purewater" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack ">
          SkyWater
         </Link>
-        <Link href="" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack">
+        <Link to="/printing" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack">
           SkyPrinting
         </Link>    
-        <Link href="" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack">
-        SkyBread
-        </Link>
+      
         </div>
           )}
          </li>

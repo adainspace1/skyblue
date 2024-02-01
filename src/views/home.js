@@ -12,13 +12,6 @@ const Home = () => {
         <ProductCard/>
         <Footer/>
 
-        
-
-
-       
-
-        
-
        
         
 
