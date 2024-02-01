@@ -11,43 +11,35 @@ const CardFlip = () => {
     setActiveCard(!activeCard);
   };
 
+  const textVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   const cardsData = [
     {
-      title: "The King's Man",
-      rating: '9.0 Rating',
+      
       description:
         'In a world where quality matters, we stand out as a beacon of purity. Our table water undergoes a meticulous purification process that guarantees the removal of impurities, leaving only crisp, refreshing goodness in every drop. We are proud to be the guardians of your hydration, ensuring that what you drink is not just water, but a symbol of purity and well-being.',
-      frontImage: './assets/img1.JPG',
-      backImage: '/assets/img2.JPG',
+      frontImage: './assets/pure1.JPG',
+      backImage: '/assets/pure4.JPG',
     },
     {
-        title: "The King's Man",
-        rating: '9.0 Rating',
+     
         description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis itaque assumenda saepe animi maxime libero non quasi, odit natus veritatis enim culpa nam inventore doloribus quidem temporibus amet velit accusamus.',
-        frontImage: './assets/img1.JPG',
-        backImage: '/assets/img20.JPG',
+          'Quality control is paramount in our table water producing factory. Our dedicated team of experts monitors every stage of the production process, conducting rigorous tests to maintain consistency and meet regulatory standards. This commitment to quality is a testament to our dedication to delivering only the best to our customers.',
+        frontImage: './assets/pure2.JPG',
+        backImage: '/assets/pure5.JPG',
       },
 
       {
-        title: "The King's Man",
-        rating: '9.0 Rating',
+       
         description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis itaque assumenda saepe animi maxime libero non quasi, odit natus veritatis enim culpa nam inventore doloribus quidem temporibus amet velit accusamus.',
-        frontImage: './assets/img1.JPG',
+          'Our customers are at the center of everything we do. We understand the importance of trust when it comes to the water you consume. Therefore, we provide transparent information about our processes, source, and quality standards, ensuring that our customers have confidence in the purity of our table water.',
+        frontImage: './assets/pure3.JPG',
         backImage: '/assets/img20.JPG',
       },
-      {
-        title: "The King's Man",
-        rating: '9.0 Rating',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis itaque assumenda saepe animi maxime libero non quasi, odit natus veritatis enim culpa nam inventore doloribus quidem temporibus amet velit accusamus.',
-        frontImage: './assets/img1.JPG',
-        backImage: '/assets/img20.JPG',
-      },
-    // Add more card data as needed
-    // { title: 'Movie 2', rating: '8.5 Rating', description: 'Description 2', frontImage: './assets/img2.JPG', backImage: '/assets/img21.JPG' },
-    // { title: 'Movie 3', rating: '7.5 Rating', description: 'Description 3', frontImage: './assets/img3.JPG', backImage: '/assets/img22.JPG' },
+
   ];
 
   return (
@@ -92,7 +84,39 @@ const CardFlip = () => {
             </div>
           ))}
         </div>
+      
       </section>
+      {/* write up section */}
+      <div className='flex justify-center items-center p-10 m-4'>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={textVariants}
+        transition={{ duration: 2 }}
+        className=''
+      >
+       
+       <h1 className="text-4xl font-bold text-center text-blue-700 mb-8">
+  At <span className="text-green-500">SkyBlue</span>, quality is our top priority.
+</h1>
+
+<br/>
+
+<p className="text-lg text-gray-700 leading-relaxed mb-8">
+Welcome to SkyBlue, where purity meets refreshment. Our table water producing factory is committed to delivering high-quality, clean, and refreshing drinking water to quench your thirst and promote a healthy lifestyle. This write-up provides an in-depth look into our state-of-the-art facility, emphasizing our dedication to quality, sustainability, and customer satisfaction.
+</p>
+
+<br/>
+
+<p className="text-lg text-gray-700 leading-relaxed mb-8">
+  We meticulously source water from pristine environments and subject it to an advanced purification process.
+  Our state-of-the-art facilities employ cutting-edge filtration, reverse osmosis, and disinfection methods,
+  ensuring that every bottle of our table water meets the highest quality standards.
+</p>
+
+
+      </motion.div>
+    </div>
       <Footer/>
     </React.Fragment>
   );
