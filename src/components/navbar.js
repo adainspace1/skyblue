@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaCaretDown } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 function AdainNavBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -34,7 +35,11 @@ function AdainNavBar() {
           <span className="sr-only">Open main menu</span>
           <FaCaretDown className="w-5 h-5" />
         </button>
-        <div className={`w-full md:block md:w-auto ${navbar ? 'block' : 'hidden'}`} id="navbar-dropdown">
+        <motion.div 
+         initial={{ opacity: 0 }} 
+         animate={{ opacity: 1 }} 
+         transition={{ duration: 3 }}
+        className={`w-full md:block md:w-auto ${navbar ? 'block' : 'hidden'}`} id="navbar-dropdown">
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <NavLink
@@ -104,7 +109,7 @@ function AdainNavBar() {
             </li>
             {/* Add other navigation items as needed */}
           </ul>
-        </div>
+        </motion.div>
       </div>
     </nav>
   );
