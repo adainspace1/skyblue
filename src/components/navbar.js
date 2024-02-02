@@ -1,124 +1,113 @@
-
-import {Link} from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import {FaCaretDown} from "react-icons/fa"
-
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { FaCaretDown } from 'react-icons/fa';
 
 function AdainNavBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState('');
 
- {/* I made a function here to toggle the dropdown button whenever 
- the user want to change the state of the dropdown to true from false... */}
- const toggleDropdown = () => {
-  setIsDropdownOpen(!isDropdownOpen);
-};
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
-
-  
-   {/* I made a function here to handle what the signin button 
-  should do, you can alter it it to work with your firebase... */}
-
-  const handleClick = (navItem) => {
-    setActiveNavItem(navItem);
+  const handleNavbarToggle = () => {
     setNavbar(!navbar);
   };
 
-  
+  const handleNavItemClick = (navItem) => {
+    setActiveNavItem(navItem);
+    setNavbar(false);
+  };
+
   return (
     <nav className="transition-opacity duration-500 w-full top-0 h-25 shadow-lg fixed lg:mb-8 bg-adainwhite backdrop-blur-3xl hover:bg-adainyellow opacity-100 z-50 hover:bg-avista2">
-     
-        <div className="justify-between px-4 mx-auto lg:max-w-8xl md:items-center md:flex sm:px-8">
-          <div className={`mt-top-adjusted ${navbar ? 'adjust-down' : ''}`}>
-            <div className="flex text-adainblack hover:text-adainwhite items-center justify-between py-5">
-              <a href="/" className="flex items-center">
-                <img src='assets/sky.png' width={50} height={50}/>
-              </a>
-              <div className="md:hidden text-adainblack hover:text-adainwhite">
-                <button className="text-adainblack hover:text-adainwhite pt-2 rounded-md" onClick={handleClick}>
-                  {navbar ? (
-                    <svg className="text-adainblack hover:text-adainwhite icon icon-tabler icon-tabler-letter-x" fill="none" height="24" stroke="currentColor" 
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" 
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                    <line x1="7" x2="17" y1="4" y2="20"/>
-                    <line x1="17" x2="7" y1="4" y2="20"/>
-                    </svg>
-                    
-                  ) : (
-                    <div className='text-adainblack hover:text-adainwhite'>
-                    <svg width="21" height="8" viewBox="0 0 21 8" fill="none" 
-                     xmlns="http://www.w3.org/2000/svg">
-                    <rect width="21" height="2" fill="#1B1919"/>
-                   <rect y="3" width="21" height="2" fill="#1B1919"/>
-                   <rect y="6" width="21" height="2" fill="#1B1919"/>
-                   </svg>
-                   </div>
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="assets/sky.png" className="h-8" alt="Flowbite Logo" />
+        </NavLink>
+        <button
+          type="button"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          onClick={handleNavbarToggle}
+        >
+          <span className="sr-only">Open main menu</span>
+          <FaCaretDown className="w-5 h-5" />
+        </button>
+        <div className={`w-full md:block md:w-auto ${navbar ? 'block' : 'hidden'}`} id="navbar-dropdown">
+          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <NavLink
+                to="/"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                onClick={() => handleNavItemClick('Home')}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/job"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                onClick={() => handleNavItemClick('Home')}
+              >
+                Job
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/contact"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                onClick={() => handleNavItemClick('Home')}
+              >
+                Contact
+              </NavLink>
+            </li>
 
-                  )}
+            <li>
+              <div className="relative">
+                <button
+                  type="button"
+                  className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                  onClick={toggleDropdown}
+                >
+                  Product and services
+                  <FaCaretDown className="w-2.5 h-2.5 ms-2.5" />
                 </button>
+
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-2 py-2 w-48 bg-adainwhite border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-600">
+                    <NavLink
+                      to="/purewater"
+                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-adainyellow dark:hover:bg-adainyellow dark:hover:text-white"
+                      onClick={() => handleNavItemClick('Dashboard')}
+                    >
+                      SkyWater
+                    </NavLink>
+                    <NavLink
+                      to="/printing"
+                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-adainyellow dark:hover:bg-adainyellow dark:hover:text-white"
+                      onClick={() => handleNavItemClick('Settings')}
+                    >
+                      SkyPrinting
+                    </NavLink>
+                    <NavLink
+                      to=""
+                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-adainyellow dark:hover:bg-adainyellow dark:hover:text-white"
+                      onClick={() => handleNavItemClick('Earnings')}
+                    >
+                      SkyBread
+                    </NavLink>
+                  </div>
+                )}
               </div>
-            </div>
-          </div>
-          <div>
-            <div className={`text-adainblack hover:text-adainwhite flex-2 justify-self-center pl-2 ... tracking-tight pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
-              <div className="space-x-4 text-lg">
-                
-    <ul className="mb-4 mt-2 items-center pr-20 font-medium text-sm... justify-center space-y-4 md:flex md:space-x-4 md:space-y-0">
-  <li className={`text-adainblack hover:text-adainwhite pr-8 ${activeNavItem === 'home' ? 'active' : ''}`}>
-    <Link to="/" onClick={() => handleClick('home')}>
-      {`Home`}
-    </Link>
-  </li>
-
-  <li className="relative text-adainblack hover:text-adainwhite">
-    <button onClick={toggleDropdown} className="nav-link flex items-center">
-      Products & Services
-      <FaCaretDown className="ml-1" />
-    </button>
-
-   {/* I made a conditional rendering of dropdown of the items inside the 
-   Products and services here, such that that users can switch to true or false ... */}
-
-    {isDropdownOpen && (
-      <div className="font-bold absolute py-8 my-4 text-sm  text-adainblack hover:text-adainwhite">
-        <Link to="/purewater" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack ">
-         SkyWater
-        </Link>
-        <Link to="/printing" className="rounded-2xl mx-2 px-2 dropdown-link backdrop-blur-xl shadow-lg bg-adainyellow text-adainwhite hover:text-adainblack">
-          SkyPrinting
-        </Link>    
-      
+            </li>
+            {/* Add other navigation items as needed */}
+          </ul>
         </div>
-          )}
-         </li>
-                  
-                 
-                  <li className={`text-adainblack hover:text-adainwhite pr-6 ${activeNavItem === 'experiences' ? 'active' : ''}`}>
-                    <Link to="/job" onClick={() => handleClick('experiences')}>
-                    Job
-                    </Link>
-                  </li>
-                  
-                  <li className={`text-adainblack hover:text-adainwhite pr-20 ${activeNavItem === 'experiences' ? 'active' : ''}`}>
-                    <Link to="/contact" onClick={() => handleClick('experiences')}>
-                    Contact
-                    </Link>
-                  </li>
-                  
-                  
-</ul>
-              </div>
-            </div>
-          </div>
-        </div>
-    
+      </div>
     </nav>
   );
 }
 
 export default AdainNavBar;
-
-
-

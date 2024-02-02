@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <Link href={"/"} className="text-3xl">
+            <Link to={"/"} className="text-3xl">
               <span className="text-adainyellow">SKY</span>BLUE.
             </Link>
             <p className="max-w-xs mt-4 text-sm">
@@ -15,14 +15,14 @@ const Footer = () => {
             </p>
             <div className="flex mt-8 space-x-6">
               <Link
-                href=""
+                to=""
                 target="_blank"
               >
                 {/* <FacebookOutlinedIcon className="hover:text-green-600 hover:-translate-y-1 transition-all" /> */}
               </Link>
              
               <Link
-                href=""
+                to=""
                 target="_blank"
               >
                 {/* <LinkedInIcon className="hover:text-green-600 hover:-translate-y-1 transition-all" /> */}
@@ -31,7 +31,7 @@ const Footer = () => {
                 {/* <TwitterIcon className="hover:text-green-600 hover:-translate-y-1 transition-all" /> */}
               </Link>
               <Link
-                href=""
+                to=""
                 target="_blank"
               >
                 {/* <InstagramIcon className="hover:text-green-600 hover:-translate-y-1 transition-all" /> */}
@@ -44,20 +44,20 @@ const Footer = () => {
               <p className="font-medium">Company</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm">
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   About
                 </Link>
               
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   History
                 </Link>
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   Careers
@@ -68,25 +68,25 @@ const Footer = () => {
               <p className="font-medium">Services</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm ">
                 <Link
-                  href="/"
+                  to="/purewater"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   Sachette Water
                 </Link>
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   SkyBread
                 </Link>
                 <Link
-                  href="/"
+                  to="/purewater"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                  Bottle/Table Water
                 </Link>
                 <Link
-                  href="/"
+                  to="/printing"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   SkyPrinting
@@ -98,19 +98,19 @@ const Footer = () => {
               <p className="font-medium">Helpful Links</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm ">
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   Contact
                 </Link>
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   FAQs
                 </Link>
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   Live Chat
@@ -121,25 +121,25 @@ const Footer = () => {
               <p className="font-medium">Legal</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm ">
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   Privacy Policy
                 </Link>
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   Terms &amp; Conditions
                 </Link>
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   Returns Policy
                 </Link>
                 <Link
-                  href="/"
+                  to="/"
                   className="hover:opacity-75 hover:border-b hover:border-neutral-400 w-fit"
                 >
                   Accessibility
